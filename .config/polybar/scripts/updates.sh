@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#sleep 15
+sleep 15
 
 updates=$(checkupdates | wc -l 2>/dev/null)
 
