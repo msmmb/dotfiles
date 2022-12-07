@@ -1,0 +1,57 @@
+cursor:
+  style: Beam
+
+theme: Tango
+colors:
+  primary:
+    background: '#282828'
+    foreground: '#00ff00'
+
+  # Normal colors
+  normal:
+    black: '#2e3436'
+    red: '#cc0000'
+    green: '#73d216'
+    yellow: '#edd400'
+    blue: '#3465a4'
+    magenta: '#75507b'
+    cyan: '#06989a'
+    white: '#d3d7cf'
+
+  # Bright colors
+  bright:
+    black: '#2e3436'
+    red: '#ef2929'
+    green: '#8ae234'
+    yellow: '#fce94f'
+    blue: '#729fcf'
+    magenta: '#ad7fa8'
+    cyan: '#34e2e2'
+    white: '#eeeeec'
+
+font:
+  bold:
+    family: JetBrains Mono ExtraBold Nerd Font
+    style: Bold
+  italic:
+    family: JetBrains Mono ExtraBold Nerd Font
+    style: Italic
+  normal:
+    family: JetBrains Mono ExtraBold Nerd Font
+    style: Bold
+  size: 9
+
+env:
+  WINIT_X11_SCALE_FACTOR: "1.0"
+
+window:
+  opacity: 1
+  #dimensions:
+  #columns: 100
+  #lines: 35
+  #position:
+  #x: 2550
+  #y: 300
+  padding:
+    x: 15
+    y: 15
