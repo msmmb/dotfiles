@@ -60,7 +60,7 @@ def sep(sp):
 
 def tema(tm):
     temas = ["basic", "dark-grey", "dracula", "material-darker", "material-ocean",
-             "monokai-pro", "nord", "onedark", "rosepine", "xmonad"]
+             "monokai-pro", "nord", "onedark", "rosepine", "xmonad", "grey"]
     if tm in temas:
         escribir("/home/michael/.config/polybar/config.ini", [f"include-file = $HOME/.config/polybar/themes/{tm}.ini"], "polybar/themes", [0])
         if tm == "basic" or tm == "xmonad":
