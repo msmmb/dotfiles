@@ -19,6 +19,9 @@ super + Escape
 super + b
 	firefox
 
+super + shift + b
+	firefox --private-window
+
 # discord
 super + d
 	discord	
@@ -67,10 +70,10 @@ super + p
 
 # screenshot
 super + s
-	scrot ~/Imágenes/Capturas/%d-%b-%Y::%H:%M:%S.png
+	gnome-screenshot -f "/home/michael/Imágenes/Capturas/$(date +\%d-\%b-\%Y)::$(date +\%H:\%M:\%S).png"
 
 super + shift + s
-	scrot -s ~/Imágenes/Capturas/%d-%b-%Y::%H:%M:%S.png
+	gnome-screenshot -af "/home/michael/Imágenes/Capturas/$(date +\%d-\%b-\%Y)::$(date +\%H:\%M:\%S).png"
 
 #----- Hardware -----
 
@@ -113,10 +116,10 @@ XF86AudioPrev
 	playerctl previous
 
 #Conectar cascos
-super + shift + b
+super + alt + b
 	bluetoothctl connect 74:45:CE:8D:EC:18
 
-# Desconectar cascos
+# Encender bluetooth
 super + ctrl + b
 	bluetoothctl disconnect
 
