@@ -117,7 +117,7 @@ XF86AudioPrev
 
 #Conectar cascos
 super + alt + b
-	bluetoothctl connect 41:0C:0D:7B:19:12
+	bluetoothctl connect D8:6C:02:5A:F4:89
 
 # Encender bluetooth
 super + ctrl + b
