@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	"Status line
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'airblade/vim-gitgutter'
 	
 	" Directoy tree
 	Plug 'scrooloose/nerdtree'
@@ -41,5 +42,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" GruvBox
 	Plug 'morhetz/gruvbox'
+
+	" Ayu
+	Plug 'ayu-theme/ayu-vim'
 
 	call plug#end()
