@@ -1,13 +1,28 @@
+#!/usr/bin/env python3
+
+import json, time
 import urllib.request
 
 # The API key that you generated from openmapweather website.
-apiKey="xxxxx"
+apiKey="ae68aef20b3a4f6a35e02b1899c48b5c"
 
 # The city you want to get the weather for.
 # I've used my own as an example.
 
-city="" # city name
-# city="" #city code
+## SS ##
+# city="3110044"
+city="donostia"
+
+## CMV ##
+# city="6360342"
+
+## KFRD ##
+# city="2299522"
+# city="koforidua"
+
+## ACR ##
+# city="2306104"
+# city=accra
 
 # The language you want to get the weather in.
 # This should be an iso code of the language.
@@ -80,12 +95,12 @@ if __name__ == "__main__":
         icon = str(weather.get("icon"))
 
         if icon != "800" and icon != "801":
-            print(f" {icons[icon]}")
+            print(f" {icons[icon]} ")
         else:
             if weather.get("day_night") == "d":
-                print(f" {icons_day[icon]}")
+                print(f" {icons_day[icon]} ")
             else:
-                print(f" {icons_night[icon]}")
+                print(f" {icons_night[icon]} ")
     else:
-        print("  ")
+        print("   ")
 

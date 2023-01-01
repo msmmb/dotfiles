@@ -70,10 +70,7 @@ super + p
 
 # screenshot
 super + s
-	gnome-screenshot -f "/home/michael/Imágenes/Capturas/$(date +\%d-\%b-\%Y)::$(date +\%H:\%M:\%S).png"
-
-super + shift + s
-	gnome-screenshot -af "/home/michael/Imágenes/Capturas/$(date +\%d-\%b-\%Y)::$(date +\%H:\%M:\%S).png"
+	gnome-screenshot -i
 
 #----- Hardware -----
 
