@@ -1,0 +1,253 @@
+----- Programas -----
+
+# terminal emulator
+super + Return
+	alacritty
+
+# menu 
+super + @space
+	rofi -show drun	-font "JetBrains Mono ExtraBold Nerd Font 10" 
+
+super + shift + @space
+	rofi -font "JetBrains Mono ExtraBold Nerd Font 10" -show 
+	
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# browser
+super + b
+	firefox
+
+super + shift + b
+	firefox --private-window 
+
+# discord
+super + d
+	discord	
+
+#htop
+super + h
+	alacritty -e htop
+
+#obs
+super + o
+	obs
+
+#calendar
+super + c
+	gnome-calendar
+
+# wifi
+super + n
+	alacritty -e nmtui
+
+# vscode
+super + v
+	code	
+
+# file Explorer
+super + f
+	nautilus	
+
+# Redshift
+super + r
+	redshift -O 6000
+
+super + shift + r
+	redshift -x
+
+# Eclipse
+super + e
+	eclipse
+
+#virtualbox
+super + k
+	virtualbox
+
+super + p
+	i3-gnome-pomodoro start-stop
+
+# screenshot
+super + s
+	gnome-screenshot -i
+
+# calculadora
+XF86Calculator 
+	gnome-calculator
+
+#----- Hardware -----
+
+# Brillo
+XF86MonBrightnessUp
+	brightnessctl set +5%
+
+XF86MonBrightnessDown
+	brightnessctl set 5%-
+
+super + x
+	brightnessctl set 100%-
+
+super + shift + x
+	brightnessctl set +5%
+
+super + ctrl + x
+	brightnessctl set 5-%
+
+# Audio
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioPlay
+	playerctl  play-pause
+
+XF86AudioPause 
+	playerctl play-pause
+
+XF86AudioNext 
+	playerctl next
+
+XF86AudioPrev 
+	playerctl previous
+
+#Conectar cascos
+
+super + alt + b
+	bluetoothctl connect 74:45:CE:8D:EC:18
+
+# Encender bluetooth
+super + ctrl + b
+	bluetoothctl disconnect
+
+# Teclado
+
+super + ctrl + e
+	setxkbmap -layout es		
+
+super + ctrl + u
+	setxkbmap -layout us
+
+#----- Ventanas -----
+
+# quit/restart bspwm
+super + ctrl + {q,r}
+	bspc {quit,wm -r}
+
+super + ctrl + d
+	systemctl suspend
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+#lock screen
+super + l
+	dm-tool lock
+
+# alternate between the tiled and monocle layout
+super + Tab 
+	bspc desktop -l next 
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,shift + f,m}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous window in the current desktop
+super + {_,shift + }a
+	bspc node -f {next,prev}.local.!hidden.window
+
+# focus the next/previous desktop in the current monitor
+ctrl + alt + {Left,Right}
+	bspc desktop -s {prev,next}.active
+
+# focus the next/previous desktop
+ctrl + alt + {Up,Down}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + shift + l 
+	bspc {node,desktop} -f last
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+super + shift + Return
+	bspc node -p south -o 0.75 && alacritty 
+
+super + ctrl + Return
+	bspc node -p south && alacritty 
+
+super + alt + Return
+	bspc node -p east -o 0.60 && alacritty 
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + alt + {Left,Down,Up,Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + ctrl + {Left,Down,Up,Right}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
