@@ -2,7 +2,34 @@
 
 # terminal emulator
 super + Return
+	~/.config/polybar/scripts/workspaces.sh term
+
+super + ctrl + Return
 	alacritty
+
+# browser
+super + b
+	~/.config/polybar/scripts/workspaces.sh www	
+
+super + ctrl + b
+	firefox
+
+super + shift + b
+	firefox --private-window 
+
+# vscode
+super + v
+	~/.config/polybar/scripts/workspaces.sh text
+
+super + ctrl + v
+	code	
+
+# spotify
+super + s
+	~/.config/polybar/scripts/workspaces.sh music
+
+super + ctrl + s
+	spotify
 
 # menu 
 super + @space
@@ -14,13 +41,6 @@ super + shift + @space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-
-# browser
-super + b
-	firefox
-
-super + shift + b
-	firefox --private-window 
 
 # discord
 super + d
@@ -42,9 +62,9 @@ super + c
 super + n
 	alacritty -e nmtui
 
-# vscode
-super + v
-	code	
+# ida
+super + i
+	ida64
 
 # file Explorer
 super + f
@@ -69,7 +89,7 @@ super + p
 	i3-gnome-pomodoro start-stop
 
 # screenshot
-super + s
+super + shift + s
 	gnome-screenshot -i
 
 # calculadora
@@ -118,11 +138,14 @@ XF86AudioPrev
 
 #Conectar cascos
 
-super + alt + b
+super + alt + 1
+	bluetoothctl connect 30:53:C1:41:6F:CB
+
+super + alt + 2
 	bluetoothctl connect 74:45:CE:8D:EC:18
 
 # Encender bluetooth
-super + ctrl + b
+super + alt + b
 	bluetoothctl disconnect
 
 # Teclado
@@ -131,7 +154,7 @@ super + ctrl + e
 	setxkbmap -layout es		
 
 super + ctrl + u
-	setxkbmap -layout us
+		setxkbmap -layout us -variant intl
 
 #----- Ventanas -----
 
