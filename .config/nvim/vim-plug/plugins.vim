@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" Auto Completion
-	Plug 'neoclide/coc.nvim' , {'branch': 'release'}
+	"Plug 'neoclide/coc.nvim' , {'branch': 'release'}
 	
 	" Surround
 	Plug 'tpope/vim-surround'
@@ -10,11 +10,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	
 	"Colorizer
-	"Plug 'norcalli/nvim-colorizer.lua'
+	Plug 'norcalli/nvim-colorizer.lua'
 	Plug 'ap/vim-css-color'
 
 	"Status line
-	"Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	
 	" Directoy tree
@@ -38,18 +38,27 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'junegunn/fzf.vim'
 
 	" Themes
-	Plug 'ayu-theme/ayu-vim'
+	Plug 'kvrohit/rasmus.nvim'
 	Plug 'folke/tokyonight.nvim'
 	Plug 'twerth/ir_black'
 	Plug 'srcery-colors/srcery-vim'
 	Plug 'sjl/badwolf'
 	Plug 'nanotech/jellybeans.vim'
-	Plug 'abra/vim-obsidian'
+	Plug 'bignimbus/pop-punk.vim'
 	Plug 'morhetz/gruvbox'
 	Plug 'dikiaap/minimalist'
+	Plug 'agude/vim-eldar'
+	Plug 'Mofiqul/vscode.nvim'
 	Plug 'arturgoms/moonbow.nvim'
 	Plug 'imeos/vim-colors-solstice'
 	Plug 'bluz71/vim-moonfly-colors'
-	Plug 'rafalbromirski/vim-aurora'
+	Plug 'rktjmp/lush.nvim'
+	Plug 'zekzekus/menguless'
+	Plug 'gryftir/gryffin'
+	Plug 'ayu-theme/ayu-vim'
+	Plug 'vim-scripts/Tango-colour-scheme'
+	Plug 'raphamorim/vim-rio'
+	Plug 'loctvl842/monokai-pro.nvim'
+	Plug 'rebelot/kanagawa.nvim'
 
 	call plug#end()
