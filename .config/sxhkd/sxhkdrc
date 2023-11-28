@@ -1,35 +1,57 @@
 ----- Programas -----
 
-# terminal emulator
-super + Return
-	~/.config/polybar/scripts/workspaces.sh term
+ terminal emulator
+#super + Return
+	#~/.config/polybar/scripts/workspaces.sh term
 
-super + ctrl + Return
+#super + ctrl + Return
+	#alacritty
+	
+super + Return
 	alacritty
 
-# browser
-super + b
-	~/.config/polybar/scripts/workspaces.sh www	
+ browser
+#super + b
+	#~/.config/polybar/scripts/workspaces.sh www	
 
-super + ctrl + b
+#super + ctrl + b
+	#firefox
+
+super + b
 	firefox
 
 super + shift + b
 	firefox --private-window 
 
-# vscode
-super + v
-	~/.config/polybar/scripts/workspaces.sh text
+ vscode
+#super + v
+	#~/.config/polybar/scripts/workspaces.sh text
 
-super + ctrl + v
+#super + ctrl + v
+	#code	
+
+super + v
 	code	
 
-# spotify
-super + s
-	~/.config/polybar/scripts/workspaces.sh music
+ spotify
+#super + s
+	#~/.config/polybar/scripts/workspaces.sh music
 
-super + ctrl + s
+#super + ctrl + s
+	#spotify
+
+super + s
 	spotify
+
+ discord
+#super + d
+	#~/.config/polybar/scripts/workspaces.sh secondary
+
+#super + ctrl + d
+	#discord
+
+super + d
+	discord
 
 # menu 
 super + @space
@@ -41,10 +63,6 @@ super + shift + @space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-
-# discord
-super + d
-	discord	
 
 #htop
 super + h
@@ -61,10 +79,6 @@ super + c
 # wifi
 super + n
 	alacritty -e nmtui
-
-# ida
-super + i
-	ida64
 
 # file Explorer
 super + f
@@ -142,7 +156,7 @@ super + alt + 1
 	bluetoothctl connect 30:53:C1:41:6F:CB
 
 super + alt + 2
-	bluetoothctl connect 74:45:CE:8D:EC:18
+	bluetoothctl connect E8:9E:13:01:80:07
 
 # Encender bluetooth
 super + alt + b
