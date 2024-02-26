@@ -10,7 +10,7 @@ let gruvbox_contrast_dark="hard"
 let $BAT_THEME='ansi'  
 
 set termguicolors
-colorscheme moonfly
+colorscheme gruvbox
 
 set number relativenumber
 "set number
@@ -54,10 +54,10 @@ let g:AutoPairs = {'{':'}'}
 "https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_theme='lucius'
 
-"hi StatusLine ctermbg=white ctermfg=black
-"hi TabLine  ctermbg=black ctermfg=darkgray cterm=none
-"hi TabLineSel  ctermbg=black ctermfg=white
-"hi TabLineFill  ctermbg=white ctermfg=black
+hi StatusLine ctermbg=white ctermfg=black
+hi TabLine  ctermbg=black ctermfg=darkgray cterm=none
+hi TabLineSel  ctermbg=black ctermfg=white
+hi TabLineFill  ctermbg=white ctermfg=black
 
 
 let g:gitgutter_enabled = 1

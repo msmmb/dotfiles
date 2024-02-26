@@ -60,5 +60,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'raphamorim/vim-rio'
 	Plug 'loctvl842/monokai-pro.nvim'
 	Plug 'rebelot/kanagawa.nvim'
+	Plug 'mhartington/oceanic-next'
 
 	call plug#end()
