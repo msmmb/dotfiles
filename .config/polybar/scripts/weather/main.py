@@ -3,8 +3,8 @@
 import json, time, datetime, sys
 import urllib.request
 
-apiKey="xxxxx"
-city="xxxxx" # city name
+api_key="xxxx"
+city="xxxx" # city name
 language="es"
 unit="metric"
 
@@ -19,11 +19,27 @@ file.close()
 
 def makeRequest():
     try:
-        url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&lang={language}&units={unit}&appid={apiKey}"
+        url2 = f"https://api.openweathermap.org/data/2.5/weather?q={city}&lang={language}&units={unit}&appid={api_key}"
+        print(url)
         request = urllib.request.urlopen(url)
 
         if request.getcode() == 200:
             data = json.loads(request.read())
+            print(data)
+            """
+            lon = data["coord"]["lon"]
+            lat = data["coord"]["lat"]
+            sunset = data["sys"]["sunset"] + data["timezone"]
+            sunset_hour = int(datetime.datetime.utcfromtimestamp(sunset).strftime('%H'))
+            cnt = 2 if sunset_hour > 18 else 3
+            url2 = f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&cnt={cnt}&appid={api_key}"
+            try:
+                request = urllib.request.urlopen(url2)
+                data2 = json.loads(request.read())
+                print(data2["list"][-1])
+            except:
+                print("fallo")
+            """
             return {
                 "name": data["name"],
                 "temp_min": round(data["main"]["temp_min"]),
@@ -34,7 +50,8 @@ def makeRequest():
                 "day_night": data["weather"][0]["icon"][2],
                 "sunrise": data["sys"]["sunrise"],
                 "sunset": data["sys"]["sunset"],
-                "timezone": data["timezone"]
+                "timezone": data["timezone"],
+                "humidity": data["main"]["humidity"]
             }
         else:
             print(f"Error: {request.getcode()}")
@@ -64,18 +81,20 @@ if __name__ == "__main__":
         timezone = weather.get("timezone")
         sunrise = weather.get("sunrise") + timezone
         sunset = weather.get("sunset") + timezone
+        humidity = weather.get("humidity")
         description = weather.get("description")
         icon = str(weather.get("icon"))
 
-        hora_actual = time.time()
-        icon_sol = "  " if hora_actual < sunrise else ("  " if hora_actual < sunset else " ")
-        # icon_sol = " " if hora_actual < sunrise else (" " if hora_actual < sunset else "")
-        sol = sunrise if hora_actual < sunrise else (sunset if hora_actual < sunset else description)
+        hora_actual = time.time() + timezone
+        # icon_sol = "  " if hora_actual < sunrise else ("  " if hora_actual < sunset else "")
+        icon_sol = "  " if hora_actual < sunrise else ("  " if hora_actual < sunset else "")
+        # sol = sunrise if hora_actual < sunrise else (sunset if hora_actual < sunset else f" {humidity}%  ")
+        sol = sunrise if hora_actual < sunrise else (sunset if hora_actual < sunset else space + description + space)
         try:
-            sol = datetime.datetime.utcfromtimestamp(sol).strftime('%H:%M')
+            if sol != humidity:
+                sol = space + datetime.datetime.fromtimestamp(sol, datetime.UTC)
         except:
             ...
-        sol = space + sol
 
 
         if icon != "800" and icon != "801":

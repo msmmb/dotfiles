@@ -7,11 +7,15 @@ endif
 
 let ayucolor="dark" 
 let gruvbox_contrast_dark="hard"
+let gruvbox_contrast_light="medium"
+let g:gruvbox_transparent_bg = 1
+" valid values: 'default' (default), 'darker', 'pure'
+let g:equinusocio_material_style = 'pure'
 let $BAT_THEME='ansi'  
 
 set termguicolors
-colorscheme gruvbox
-
+colorscheme equinusocio_material
+set background=dark
 set number relativenumber
 "set number
 "set cursorline
@@ -30,7 +34,7 @@ set encoding=UTF-8
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set noshowmode
+"set noshowmode
 let mapleader="z"
 highlight VertSplit cterm=NONE
 
@@ -46,13 +50,19 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_error = 0
 let g:airline_section_warning = 0
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#right_separator = ''
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
+
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
 let g:AutoPairs = {'{':'}'}
 
 "https://github.com/vim-airline/vim-airline/wiki/Screenshots
-let g:airline_theme='lucius'
+let g:airline_theme='hybrid'
 
 hi StatusLine ctermbg=white ctermfg=black
 hi TabLine  ctermbg=black ctermfg=darkgray cterm=none
@@ -61,6 +71,7 @@ hi TabLineFill  ctermbg=white ctermfg=black
 
 
 let g:gitgutter_enabled = 1
+"highlight Normal guibg=none
 highlight GitGutterAdd guifg=#009900 ctermfg=green
 highlight GitGutterChange guifg=#bbbb00 ctermfg=yellow
 highlight GitGutterDelete guifg=#ff2222 ctermfg=red
@@ -91,6 +102,7 @@ noremap S :%s///g<Left><Left><Left>
 noremap SS :.s///g<Left><Left><Left>
 noremap SSS :s///g<Left><Left><Left><Left><Left>
 noremap <A-m> :MinimapToggle<CR>
+inoremap <C-backspace> <Esc>bvwdi 
 
 let g:minimap_width = 10
 let g:minimap_auto_start = 0
@@ -98,5 +110,6 @@ let g:minimap_auto_start = 0
 let g:fzf_action = { 'enter': 'tab split' }
 let $FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS . ' --bind "alt-a:select-all,alt-d:deselect-all"'
 
-highlight LineNr ctermfg=DarkGrey
+"highlight LineNr ctermfg=DarkGrey
 "inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+

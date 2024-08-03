@@ -14,8 +14,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'ap/vim-css-color'
 
 	"Status line
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
+	"Plug 'vim-airline/vim-airline'
+	"Plug 'vim-airline/vim-airline-themes'
 	
 	" Directoy tree
 	Plug 'scrooloose/nerdtree'
@@ -38,28 +38,19 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'junegunn/fzf.vim'
 
 	" Themes
-	Plug 'kvrohit/rasmus.nvim'
-	Plug 'folke/tokyonight.nvim'
-	Plug 'twerth/ir_black'
 	Plug 'srcery-colors/srcery-vim'
 	Plug 'sjl/badwolf'
 	Plug 'nanotech/jellybeans.vim'
-	Plug 'bignimbus/pop-punk.vim'
 	Plug 'morhetz/gruvbox'
-	Plug 'dikiaap/minimalist'
 	Plug 'agude/vim-eldar'
-	Plug 'Mofiqul/vscode.nvim'
 	Plug 'arturgoms/moonbow.nvim'
-	Plug 'imeos/vim-colors-solstice'
 	Plug 'bluz71/vim-moonfly-colors'
-	Plug 'rktjmp/lush.nvim'
-	Plug 'zekzekus/menguless'
-	Plug 'gryftir/gryffin'
 	Plug 'ayu-theme/ayu-vim'
-	Plug 'vim-scripts/Tango-colour-scheme'
-	Plug 'raphamorim/vim-rio'
 	Plug 'loctvl842/monokai-pro.nvim'
-	Plug 'rebelot/kanagawa.nvim'
-	Plug 'mhartington/oceanic-next'
+	Plug 'Yazeed1s/oh-lucy.nvim'
+	Plug 'askfiy/visual_studio_code'
+	Plug 'bluz71/vim-nightfly-colors'
+	Plug 'yunlingz/equinusocio-material.vim'
+	Plug 'EdenEast/nightfox.nvim'
 
 	call plug#end()
