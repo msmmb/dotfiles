@@ -1,0 +1,32 @@
+# Colors (Badwolf)
+
+[colors.primary]
+background = '#1c1b1a'
+foreground = '#ffffff'
+
+[colors.cursor]
+text = '#1b1918'
+cursor = '#a8a19f'
+
+# Normal colors
+[colors.normal]
+black   = '#1b1918'
+red     = '#ff2c4b'
+green   = '#aeee00'
+yellow  = '#ffa724'
+blue    = '#407ee7'
+magenta = '#ff9eb8'
+cyan    = '#8cffba'
+white   = '#ffffff'
+
+# Bright colors
+[colors.bright]
+black   = '#766e6b'
+red     = '#f22c40'
+green   = '#5ab738'
+yellow  = '#d5911a'
+blue    = '#407ee7'
+magenta = '#6666ea'
+cyan    = '#00ad9c'
+white   = '#f1efee'
+

@@ -14,7 +14,9 @@ let g:equinusocio_material_style = 'pure'
 let $BAT_THEME='ansi'  
 
 set termguicolors
-colorscheme equinusocio_material
+colorscheme badwolf
+"set notermguicolors
+"colorscheme default
 set background=dark
 set number relativenumber
 "set number
@@ -34,7 +36,7 @@ set encoding=UTF-8
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-"set noshowmode
+set noshowmode
 let mapleader="z"
 highlight VertSplit cterm=NONE
 
@@ -62,7 +64,9 @@ let g:airline#extensions#tabline#right_alt_sep = ''
 let g:AutoPairs = {'{':'}'}
 
 "https://github.com/vim-airline/vim-airline/wiki/Screenshots
-let g:airline_theme='hybrid'
+let g:airline_theme='badwolf'
+
+lua require('smear_cursor').enabled = true
 
 hi StatusLine ctermbg=white ctermfg=black
 hi TabLine  ctermbg=black ctermfg=darkgray cterm=none
@@ -113,3 +117,7 @@ let $FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS . ' --bind "alt-a:select-all,alt-d:desel
 "highlight LineNr ctermfg=DarkGrey
 "inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
+highlight Normal guibg=none
+highlight NonText guibg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none

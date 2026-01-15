@@ -1,41 +1,24 @@
-#[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
-#[ -z "$TMUX"  ] && { tmux attach || exec tmux new -s "tmux" && exit;}
-
-#24283b Enable Powerlevel10k instant prompt. Should stay close to the top of /home/michael/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-/home/michael/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-/home/michael/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#if [[ $(whoami) != "root" ]]; then
-  ##export PF_INFO="ascii title os host kernel uptime pkgs memory wm shell editor"
-  #export PF_INFO="ascii title os kernel wm pkgs shell"
-  #pfetch
-#fi
+export VISUAL=nvim;
+export EDITOR=nvim;
+export TERMINAL=alacritty
 
-
-#font size
-if [[ $DESKTOP_SESSION = 'gnome' || $DESKTOP_SESSION = 'gnome-xorg' ]]; then
-  if [[ $(xrandr --listmonitors | wc -l) -gt 2 ]]
-  then
-    python /home/michael/.customizar.py -s 8.5
-  else
-    python /home/michael/.customizar.py -s 9.5
-  fi
-fi
-
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 ######################### ALIASES ##########################
 
-alias yt='youtube-dl'
 alias bl='brightnessctl set 100%-'
-alias pb='cd /home/michael/.config/polybar'
-alias bp='cd /home/michael/.config/bspwm'
 alias cl='clear'
 alias ca='cd ..'
 alias caa='cd ../..'
+alias cdp='cd $HOME/code/repos'
+alias cdo='cd $HOME/code/repos_de_otros'
+alias cdc='cd $HOME/code/ctf/otw/vortex'
 alias cn='bluetoothctl'
 alias tree="exa -T --icons"
 alias tred="exa -TD --icons"
@@ -50,26 +33,30 @@ alias lsa='exa -a'
 alias la='exa -al'
 alias ll='exa -l'
 alias ls="exa"
-alias kn='ssh spb20@dif-cluster.si.ehu.es'
-alias feh='feh -F'
-alias rr='ranger'
 alias nvim='nvim -p'
 alias vi='nvim'
 alias suvi='sudoedit'
-alias cm='python /home/michael/.customizar.py'
+alias cm='python $HOME/.custom_alacritty.py'
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
-alias at='alacritty-themes && rm /home/michael/.config/alacritty/*bak' 
-alias p='paru'
+alias p='sudo pacman'
 alias e='exit'
-alias updt='paru -Syyuu --noconfirm && paru -Rns $(paru -Qqdt) --noconfirm'
-alias spnd='systemctl suspend && exit'
-alias cat="bat --theme=base16 --style=full --paging=never"
-alias history='cat /home/michael/.zsh_history'
+alias cat="bat --theme=ansi --style=full --paging=never"
+alias history='cat $HOME/.zsh_history'
+alias batt='powerprofilesctl'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-export VISUAL=nvim;
-export EDITOR=nvim;
+alias gdb='gdb -q'
+alias obd='objdump'
+alias updt='checkupdates'
+
+############### VARIABLES ##########################
+
+#export FZF_DEFAULT_COMMAND="find ../../"
+#export FZF_CTRL_T_COMMAND="find ../../"
+#export FZF_ALT_C_COMMAND="find ../../"
+export NLTK_DATA="$HOME/.local/share"
+
 
 ############### FUNCIONES ##########################
 
@@ -88,7 +75,7 @@ nvimx() {
 dot() {
   a="$(readlink -f $1)"
   b=${a:14}
-  c="/home/michael/code/repos/dotfiles/$b"
+  c="$HOME/code/repos/dotfiles/$b"
   cp -r $a $c 
 }
 
@@ -97,11 +84,11 @@ gcx() {
 }
 
 gco() {
-  gcc -O2 -fopenmp $1 -o $2 -lm; ./$2
+  gcc -fopenmp $1 -o $2 -lm; ./$2
 }
 
 gcn() {
-        nvcc -O2 $1 -o $2 -lm; ./$2
+        nvcc $1 -o $2 -lm; ./$2
 }
 
 cop() {
@@ -109,7 +96,7 @@ cop() {
 }
 
 newhist(){
-  cd /home/michael
+  cd $HOME
   mv .zsh_history .zsh_history_bad
   strings -eS .zsh_history_bad > .zsh_history
   fc -R .zsh_history
@@ -119,9 +106,9 @@ newhist(){
 
 ##################### HISTORY ########################
 
-export HISTSIZE=10000
-export SAVEHIST=10000
-export HISTFILE=/home/michael/.zsh_history
+export HISTSIZE=50000
+export SAVEHIST=50000
+export HISTFILE=$HOME/.zsh_history
 
 ##################### WINDOW TITLE ###################
 
@@ -250,10 +237,10 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 #################### P10K ###########################
 
 
-# To customize prompt, run `p10k configure` or edit /home/michael/.p10k.zsh.
-[[ ! -f /home/michael/.p10k.zsh ]] || source /home/michael/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit $HOME/.p10k.zsh.
+[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
-source /home/michael/.repos/powerlevel10k/powerlevel10k.zsh-theme
+source $HOME/.repos/powerlevel10k/powerlevel10k.zsh-theme
 
 #Plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 
@@ -263,14 +250,14 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/michael/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/.conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/michael/.anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/michael/.anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/.conda/etc/profile.d/conda.sh" ]; then
+        . "$HOME/.conda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/michael/.anaconda3/bin:$PATH"
+        export PATH="$HOME/.conda/bin:$PATH"
     fi
 fi
 unset __conda_setup

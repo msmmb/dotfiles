@@ -1,30 +1,5 @@
-[colors.bright]
-black = "#665c54"
-blue = "#83a598"
-cyan = "#8ec07c"
-green = "#b8bb26"
-magenta = "#d3869b"
-red = "#fb4934"
-white = "#fbf1c7"
-yellow = "#fabd2f"
-
-[colors.cursor]
-cursor = "#d5c4a1"
-text = "#1d2021"
-
-[colors.normal]
-black = "#1d2021"
-blue = "#83a598"
-cyan = "#8ec07c"
-green = "#b8bb26"
-magenta = "#d3869b"
-red = "#fb4934"
-white = "#d5c4a1"
-yellow = "#fabd2f"
-
-[colors.primary]
-background = "#1d2021"
-foreground = "#d5c4a1"
+[general]
+import = [ "/home/michael/.config/alacritty/themes/Badwolf.toml",]
 
 [cursor]
 style = "Beam"
@@ -34,7 +9,14 @@ TERM = "xterm-256color"
 WINIT_X11_SCALE_FACTOR = "1.0"
 
 [font]
-size = 8.5
+size = 11.0
+
+[mouse]
+hide_when_typing = true
+
+[window]
+opacity = 1.0
+startup_mode = "maximized"
 
 [font.bold]
 family = "JetBrains Mono ExtraBold Nerd Font"
@@ -48,16 +30,9 @@ style = "Italic"
 family = "JetBrains Mono ExtraBold Nerd Font"
 style = "Bold"
 
-[mouse]
-hide_when_typing = true
-
-[window]
-opacity = 1
-startup_mode = "maximized"
-
-[window.dimensions]
-columns = 140
-lines = 40
+[window.position]
+x = 1080
+y = 0
 
 [window.padding]
 x = 15

@@ -14,8 +14,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'ap/vim-css-color'
 
 	"Status line
-	"Plug 'vim-airline/vim-airline'
-	"Plug 'vim-airline/vim-airline-themes'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 	
 	" Directoy tree
 	Plug 'scrooloose/nerdtree'
@@ -37,6 +37,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 
+	" HTML tag auto close
+	Plug 'alvan/vim-closetag'
+
+	" Cursor animation
+	Plug 'sphamba/smear-cursor.nvim'	
+
 	" Themes
 	Plug 'srcery-colors/srcery-vim'
 	Plug 'sjl/badwolf'
@@ -45,12 +51,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'agude/vim-eldar'
 	Plug 'arturgoms/moonbow.nvim'
 	Plug 'bluz71/vim-moonfly-colors'
-	Plug 'ayu-theme/ayu-vim'
 	Plug 'loctvl842/monokai-pro.nvim'
 	Plug 'Yazeed1s/oh-lucy.nvim'
 	Plug 'askfiy/visual_studio_code'
 	Plug 'bluz71/vim-nightfly-colors'
 	Plug 'yunlingz/equinusocio-material.vim'
 	Plug 'EdenEast/nightfox.nvim'
+	Plug 'iagorrr/noctis-high-contrast.nvim'
+	Plug 'folke/tokyonight.nvim'
 
 	call plug#end()
